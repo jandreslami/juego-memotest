@@ -52,7 +52,7 @@ function iniciarJuego(clic) {
 
     contadorClics++;
     //mostrarBotonReiniciar;
-    console.log(evaluarGanarJuego($tarjetasBocaArriba))
+
     if (evaluarGanarJuego($tarjetasBocaArriba)) {
         $estado.classList.remove("alert-light", "alert-danger", "alert-success")
         $estado.classList.add("alert-primary")
@@ -137,7 +137,7 @@ function evaluarGanarJuego(array) {
     for (i = 0; i < array.length; i++) {
         acumulador.push(!aux[i].classList.contains("d-none"))
     }
-    console.log(acumulador)
+ 
     return acumulador.every(element => element === true)
 
 }
