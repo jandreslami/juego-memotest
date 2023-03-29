@@ -52,28 +52,36 @@ function iniciarJuego(clic) {
 
     contadorClics++;
     //mostrarBotonReiniciar;
+    console.log(evaluarGanarJuego($tarjetasBocaArriba))
+    if (evaluarGanarJuego($tarjetasBocaArriba)) {
+        $estado.classList.remove("alert-light", "alert-danger", "alert-success")
+        $estado.classList.add("alert-primary")
+        $estado.textContent = `Ganaste en ${turno} turnos`
+        return
+    }
+
+
 
     if (contadorClics % 2 === 0) {
         bloquearInputUsuario();
         turno++;
 
-        evaluarGanarJuego($tarjetasBocaArriba)
-
         if (evaluarEleccion(eleccionImagenes)) {
+
             $estado.textContent = "Correcto!"
             $estado.classList.remove("alert-light", "alert-danger")
             $estado.classList.add("alert-success")
             eleccionTarjetas = []
             eleccionImagenes = []
             setTimeout(function () {
-                $estado.textContent = "Ahora seguí jugando"
+                $estado.textContent = "Seguí jugando"
                 $estado.classList.remove("alert-success", "alert-danger")
                 $estado.classList.add("alert-light")
 
             },
                 1500)
 
-                setTimeout(desbloquearInputUsuario, 1500)
+            setTimeout(desbloquearInputUsuario, 1500)
 
         } else {
             bloquearInputUsuario();
@@ -81,12 +89,17 @@ function iniciarJuego(clic) {
             setTimeout(desbloquearInputUsuario, 1500)
 
             setTimeout(function () {
-                $estado.textContent = "Ahora seguí jugando"
+                $estado.textContent = "Seguí jugando"
                 $estado.classList.remove("alert-success", "alert-danger")
                 $estado.classList.add("alert-light")
             },
                 1500)
+
+
+
         }
+
+
 
 
     }
@@ -116,15 +129,16 @@ function evaluarEleccion(arrayEleccion) {
     return arrayEleccion[0] === arrayEleccion[1]
 }
 
-function evaluarGanarJuego(array){
+function evaluarGanarJuego(array) {
     //devuelve true si se ganó (todas las tarjetas están boca arriba)
-    let acumulador =[]
-    for (i=0; i<array.length; i++){
-       acumulador.push(array[i].classList.contains("d-none"))
-    }
+    let acumulador = []
+    let aux = Array.from(array)
 
-    return !Boolean(acumulador)
-    
+    for (i = 0; i < array.length; i++) {
+        acumulador.push(!aux[i].classList.contains("d-none"))
+    }
+    console.log(acumulador)
+    return acumulador.every(element => element === true)
 
 }
 
