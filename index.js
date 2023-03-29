@@ -70,21 +70,21 @@ function iniciarJuego(clic) {
                 $estado.classList.add("alert-light")
 
             },
-                1200)
+                700)
 
-                setTimeout(desbloquearInputUsuario, 1200)
+                setTimeout(desbloquearInputUsuario, 700)
 
         } else {
             bloquearInputUsuario();
             setTimeout(perder, 500)
-            setTimeout(desbloquearInputUsuario, 1500)
+            setTimeout(desbloquearInputUsuario, 700)
 
             setTimeout(function () {
                 $estado.textContent = "Ahora seguí jugando"
                 $estado.classList.remove("alert-success", "alert-danger")
                 $estado.classList.add("alert-light")
             },
-                1200)
+                700)
         }
 
 
