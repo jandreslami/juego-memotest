@@ -57,6 +57,7 @@ function iniciarJuego(clic) {
         bloquearInputUsuario();
         turno++;
 
+        evaluarGanarJuego($tarjetasBocaArriba)
 
         if (evaluarEleccion(eleccionImagenes)) {
             $estado.textContent = "Correcto!"
@@ -70,21 +71,21 @@ function iniciarJuego(clic) {
                 $estado.classList.add("alert-light")
 
             },
-                700)
+                1500)
 
-                setTimeout(desbloquearInputUsuario, 700)
+                setTimeout(desbloquearInputUsuario, 1500)
 
         } else {
             bloquearInputUsuario();
             setTimeout(perder, 500)
-            setTimeout(desbloquearInputUsuario, 700)
+            setTimeout(desbloquearInputUsuario, 1500)
 
             setTimeout(function () {
                 $estado.textContent = "Ahora seguí jugando"
                 $estado.classList.remove("alert-success", "alert-danger")
                 $estado.classList.add("alert-light")
             },
-                700)
+                1500)
         }
 
 
@@ -98,12 +99,12 @@ function limpiarElecciones(elecciones) {
     elecciones = []
 }
 
+
 function perder() {
     $estado.textContent = "Incorrecto"
     $estado.classList.remove("alert-light")
     $estado.classList.add("alert-danger")
-    console.log(eleccionTarjetas)
-    console.log(eleccionImagenes)
+
     eleccionTarjetas.forEach(tarjeta => ocultarTarjeta(tarjeta))
     eleccionTarjetas = []
     eleccionImagenes = []
@@ -113,6 +114,18 @@ function perder() {
 
 function evaluarEleccion(arrayEleccion) {
     return arrayEleccion[0] === arrayEleccion[1]
+}
+
+function evaluarGanarJuego(array){
+    //devuelve true si se ganó (todas las tarjetas están boca arriba)
+    let acumulador =[]
+    for (i=0; i<array.length; i++){
+       acumulador.push(array[i].classList.contains("d-none"))
+    }
+
+    return !Boolean(acumulador)
+    
+
 }
 
 
