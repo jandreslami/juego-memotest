@@ -1,10 +1,5 @@
 let $tarjetasBocaArriba = document.getElementsByClassName("tarjeta-boca-arriba")
 let $tarjetasBocaAbajo = document.getElementsByClassName("tarjeta-boca-abajo")
-// let array1 = ["hola", "hola2", "hola3", "hola4"]
-
-// console.log(
-// tomarElementosAleatoriamente(array1,3)
-// )
 
 
 function popularTarjetas (tarjetas){
