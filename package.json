@@ -11,8 +11,5 @@
     "url": "juego-memotest"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.2.3"
-  }
+  "license": "ISC"
 }
