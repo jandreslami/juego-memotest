@@ -1,6 +1,9 @@
 let $tarjetasBocaArriba = document.getElementsByClassName("tarjeta-boca-arriba")
 let $tarjetasBocaAbajo = document.getElementsByClassName("tarjeta-boca-abajo")
 
+Array.from($tarjetasBocaAbajo).forEach(
+    tarjeta => tarjeta.onclick = iniciarJuego
+)
 
 function popularTarjetas (tarjetas){
 
@@ -23,6 +26,7 @@ function popularTarjetas (tarjetas){
 
 
 
+
 function generaNumeroAleatorio(max,arrayNumerosExcluidos){
     
     let numeroAleatorio = Math.floor(Math.random()*max)
@@ -34,10 +38,15 @@ function generaNumeroAleatorio(max,arrayNumerosExcluidos){
     return numeroAleatorio
 }
 
+function iniciarJuego(clic) {
+    let tarjetaElegida = clic.target
+    darVueltaTarjeta(tarjetaElegida);
+    
+}
 
-function darVueltaTarjeta (posicion){
-    $tarjetasBocaArriba[posicion].classList.remove("d-none")
-    $tarjetasBocaAbajo[posicion].classList.add("d-none")
+function darVueltaTarjeta (tarjeta){
+    tarjeta.previousElementSibling.classList.remove("d-none")
+    tarjeta.classList.add("d-none")
 }
 
 
