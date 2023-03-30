@@ -76,19 +76,19 @@ function iniciarJuego(clic) {
         $estado.textContent = "Seguí jugando";
         $estado.classList.remove("alert-success", "alert-danger");
         $estado.classList.add("alert-light");
-      }, 1500);
+      }, 1100);
 
-      setTimeout(desbloquearInputUsuario, 1500);
+      setTimeout(desbloquearInputUsuario, 450);
     } else {
       bloquearInputUsuario();
-      setTimeout(perder, 500);
-      setTimeout(desbloquearInputUsuario, 1500);
+      setTimeout(perder, 400);
+      setTimeout(desbloquearInputUsuario, 450);
 
       setTimeout(function () {
         $estado.textContent = "Seguí jugando";
         $estado.classList.remove("alert-success", "alert-danger");
         $estado.classList.add("alert-light");
-      }, 1500);
+      }, 1100);
     }
   }
 }
@@ -131,9 +131,7 @@ function desbloquearInputUsuario() {
 }
 
 function bloquearInputUsuario() {
-  Array.from($tarjetasBocaAbajo).forEach(
-    (tarjeta) => (tarjeta.onclick = "")
-    );
+  Array.from($tarjetasBocaAbajo).forEach((tarjeta) => (tarjeta.onclick = ""));
 }
 
 function darVueltaTarjeta(tarjeta) {
