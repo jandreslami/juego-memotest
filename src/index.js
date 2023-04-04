@@ -9,8 +9,10 @@ let eleccionTarjetas = [];
 let eleccionImagenes = [];
 let turno = 0;
 
-popularTarjetas($tarjetasBocaArriba);
-desbloquearInputUsuario();
+function configurarJuego(){
+  popularTarjetas($tarjetasBocaArriba);
+  desbloquearInputUsuario();
+}
 
 function popularTarjetas(tarjetas) {
   let arrayAcumulador = [];
@@ -106,7 +108,7 @@ function perder() {
   eleccionTarjetas = [];
   eleccionImagenes = [];
 }
-//function reiniciarJuego()
+//function reiniciarJuego() - feature a agregar
 
 function evaluarEleccion(arrayEleccion) {
   return arrayEleccion[0] === arrayEleccion[1];
@@ -143,3 +145,5 @@ function ocultarTarjeta(tarjeta) {
   tarjeta.previousElementSibling.classList.add("d-none");
   tarjeta.classList.remove("d-none");
 }
+
+configurarJuego();
