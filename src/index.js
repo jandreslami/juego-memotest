@@ -69,28 +69,19 @@ function iniciarJuego(clic) {
     turno++;
 
     if (evaluarEleccion(eleccionImagenes)) {
-      $estado.textContent = "Correcto!";
-      $estado.classList.remove("alert-light", "alert-danger");
-      $estado.classList.add("alert-success");
-      eleccionTarjetas = [];
-      eleccionImagenes = [];
-      setTimeout(function () {
-        $estado.textContent = "Seguí jugando";
-        $estado.classList.remove("alert-success", "alert-danger");
-        $estado.classList.add("alert-light");
-      }, 1100);
-
+      ganar();
       setTimeout(desbloquearInputUsuario, 450);
+
+      seguirJugando();
+  
+
+      
     } else {
       bloquearInputUsuario();
       setTimeout(perder, 400);
       setTimeout(desbloquearInputUsuario, 450);
 
-      setTimeout(function () {
-        $estado.textContent = "Seguí jugando";
-        $estado.classList.remove("alert-success", "alert-danger");
-        $estado.classList.add("alert-light");
-      }, 1100);
+      seguirJugando();
     }
   }
 }
@@ -99,6 +90,22 @@ function limpiarElecciones(elecciones) {
   elecciones = [];
 }
 
+function seguirJugando(){
+  setTimeout(function () {
+    $estado.textContent = "Seguí jugando";
+    $estado.classList.remove("alert-success", "alert-danger");
+    $estado.classList.add("alert-light");
+  }, 1100);
+}
+
+function ganar(){
+  $estado.textContent = "Correcto!";
+  $estado.classList.remove("alert-light", "alert-danger");
+  $estado.classList.add("alert-success");
+  eleccionTarjetas = [];
+  eleccionImagenes = [];
+
+}
 function perder() {
   $estado.textContent = "Incorrecto";
   $estado.classList.remove("alert-light");
