@@ -77,7 +77,7 @@ function iniciarJuego(clic) {
 
       
     } else {
-      bloquearInputUsuario();
+     
       setTimeout(perder, 400);
       setTimeout(desbloquearInputUsuario, 450);
 
