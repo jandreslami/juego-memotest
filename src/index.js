@@ -11,7 +11,7 @@ let turno = 0;
 
 function configurarJuego(){
   popularTarjetas($tarjetasBocaArriba);
-  desbloquearInputUsuario();
+  desbloquearInputUsuario($tarjetasBocaAbajo);
 }
 
 function popularTarjetas(tarjetas) {
@@ -65,12 +65,12 @@ function iniciarJuego(clic) {
   }
 
   if (contadorClics % 2 === 0) {
-    bloquearInputUsuario();
+    bloquearInputUsuario($tarjetasBocaAbajo);
     turno++;
 
     if (evaluarEleccion(eleccionImagenes)) {
       ganar();
-      setTimeout(desbloquearInputUsuario, 450);
+      setTimeout(desbloquearInputUsuario,450 ,$tarjetasBocaAbajo);
 
       seguirJugando();
   
@@ -79,7 +79,7 @@ function iniciarJuego(clic) {
     } else {
      
       setTimeout(perder, 400);
-      setTimeout(desbloquearInputUsuario, 450);
+      setTimeout(desbloquearInputUsuario,450,$tarjetasBocaAbajo);
 
       seguirJugando();
     }
@@ -133,14 +133,14 @@ function evaluarGanarJuego(array) {
   return acumulador.every((element) => element === true);
 }
 
-function desbloquearInputUsuario() {
-  Array.from($tarjetasBocaAbajo).forEach(
+function desbloquearInputUsuario(arrayElementos) {
+  Array.from(arrayElementos).forEach(
     (tarjeta) => (tarjeta.onclick = iniciarJuego)
   );
 }
 
-function bloquearInputUsuario() {
-  Array.from($tarjetasBocaAbajo).forEach((tarjeta) => (tarjeta.onclick = ""));
+function bloquearInputUsuario(arrayElementos) {
+  Array.from(arrayElementos).forEach((tarjeta) => (tarjeta.onclick = ""));
 }
 
 function darVueltaTarjeta(tarjeta) {
