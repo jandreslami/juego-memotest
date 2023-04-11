@@ -4,20 +4,12 @@
   "description": "juego de memotest simple",
   "main": "index.html",
   "scripts": {
-    "test": "cypress open",
-    "empezar" : "http-server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "juego-memotest"
   },
-  "author": "jandreslami",
-  "license": "ISC",
-  "devDependencies": {
-    "cypress": "^12.9.0"
-  },
-  "dependencies": {
-    "http-server": "^14.1.1"
-  }
+  "author": "",
+  "license": "ISC"
 }
- 
