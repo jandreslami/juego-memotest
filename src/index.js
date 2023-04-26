@@ -30,10 +30,10 @@ function popularTarjetas(tarjetas) {
     );
     arrayAcumulador.push(numeroAleatorio2);
 
-    tarjetas[numeroAleatorio1].setAttribute("src", `media/img${i + 1}.png`);
+    tarjetas[numeroAleatorio1].setAttribute("src", `media/compressed/img${i + 1}.png`);
     tarjetas[numeroAleatorio1].nextElementSibling.id = `img${i + 1}`;
 
-    tarjetas[numeroAleatorio2].setAttribute("src", `media/img${i + 1}.png`);
+    tarjetas[numeroAleatorio2].setAttribute("src", `media/compressed/img${i + 1}.png`);
     tarjetas[numeroAleatorio2].nextElementSibling.id = `img${i + 1}`;
   }
 }
